@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>МосРитуалист — Ритуальные услуги в Москве круглосуточно</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/cormorant-garamond@5.0.0/index.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.0/index.css" />
+<style>
+  body { font-family: 'Inter', sans-serif; background: #0f0f0f; color: #e5e5e5; }
+  .font-serif { font-family: 'Cormorant Garamond', serif; }
+  .gold-text { color: #c9a961; }
+  .gold-bg { background-color: #c9a961; }
+  .gold-border { border-color: #c9a961; }
+  .dark-card { background: linear-gradient(180deg, #1a1a1a 0%, #141414 100%); border: 1px solid #2a2a2a; }
+  .dark-card:hover { border-color: #c9a961; }
+  .btn-gold { background: linear-gradient(135deg, #c9a961 0%, #a08040 100%); color: #0f0f0f; }
+  .btn-gold:hover { background: linear-gradient(135deg, #d4b976 0%, #b09050 100%); }
+  .btn-outline { border: 1px solid #c9a961; color: #c9a961; }
+  .btn-outline:hover { background: #c9a961; color: #0f0f0f; }
+  .divider-gold { height: 1px; background: linear-gradient(90deg, transparent, #c9a961, transparent); }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+  @keyframes fadeOut { to { opacity: 0; transform: translateX(100%); } }
+  @keyframes pulse-ring { 0% { box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.6); } 70% { box-shadow: 0 0 0 15px rgba(201, 169, 97, 0); } 100% { box-shadow: 0 0 0 0 rgba(201, 169, 97, 0); } }
+  .fade-in { animation: fadeIn 0.6s ease-out; }
+  .slide-in { animation: slideIn 0.3s ease-out; }
+  .toast { animation: slideIn 0.3s ease-out, fadeOut 0.3s ease-out 2.5s forwards; }
+  .pulse-ring { animation: pulse-ring 2s infinite; }
+  .hero-overlay { background: linear-gradient(135deg, rgba(15,15,15,0.95) 0%, rgba(15,15,15,0.7) 50%, rgba(15,15,15,0.95) 100%); }
+  .tab-active { color: #c9a961; border-bottom: 2px solid #c9a961; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .product-card { transition: all 0.3s ease; }
+  .product-card:hover { transform: translateY(-4px); }
+  .product-card:hover .product-img { transform: scale(1.05); }
+  .product-img { transition: transform 0.5s ease; }
+  .ribbon { background: #7c1d1d; color: #fff; }
+  .cross-pattern { background-image: radial-gradient(circle at 1px 1px, rgba(201,169,97,0.08) 1px, transparent 0); background-size: 24px 24px; }
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- Top Bar -->
+<div class="bg-black border-b border-gray-900 text-xs text-gray-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Работаем круглосуточно</span>
+      <span class="hidden sm:inline">Лицензия №77-Р/2019</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#contacts" class="hover:text-[#c9a961] transition">Вызвать агента</a>
+      <span class="hidden sm:inline">|</span>
+      <a href="tel:+74951234567" class="hover:text-[#c9a961] transition font-medium text-white">+7 (495) 123-45-67</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="bg-[#0f0f0f] border-b border-gray-900 sticky top-0 z-40 backdrop-blur-lg bg-[#0f0f0f]/95">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full border-2 border-[#c9a961] flex items-center justify-center">
+          <svg class="w-6 h-6 text-[#c9a961]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L13.5 8.5H20L14.75 12.5L16.5 19L12 15L7.5 19L9.25 12.5L4 8.5H10.5L12 2Z"/></svg>
+        </div>
+        <div>
+          <div class="font-serif text-2xl font-bold tracking-wide text-white">МосРитуалист</div>
+          <div class="text-xs text-gray-500 tracking-widest uppercase">Ритуальные услуги</div>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="#services" class="text-gray-300 hover:text-[#c9a961] transition text-sm tracking-wide">Услуги</a>
+        <a href="#catalog" class="text-gray-300 hover:text-[#c9a961] transition text-sm tracking-wide">Каталог</a>
+        <a href="#funeral" class="text-gray-300 hover:text-[#c9a961] transition text-sm tracking-wide">Виды похорон</a>
+        <a href="#about" class="text-gray-300 hover:text-[#c9a961] transition text-sm tracking-wide">О нас</a>
+        <a href="#contacts" class="text-gray-300 hover:text-[#c9a961] transition text-sm tracking-wide">Контакты</a>
+      </nav>
+
+      <a href="tel:+74951234567" class="btn-gold px-5 py-2.5 rounded font-semibold text-sm flex items-center gap-2 shadow-lg">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        <span class="hidden sm:inline">Вызвать</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="relative overflow-hidden border-b border-gray-900">
+  <div class="absolute inset-0 cross-pattern opacity-30"></div>
+  <div class="absolute inset-0 hero-overlay"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
+    <div class="max-w-3xl fade-in">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+        <span class="text-[#c9a961] text-sm tracking-[0.3em] uppercase">С 2005 года в Москве</span>
+      </div>
+      <h1 class="font-serif text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
+        Достойная память<br/><span class="gold-text italic">о близких</span>
+      </h1>
+      <p class="text-lg text-gray-300 mb-10 max-w-2xl leading-relaxed">
+        Полный спектр ритуальных услуг в Москве и Московской области. Круглосуточная поддержка, деликатный подход, прозрачные цены. Помогаем провести последние проводы с уважением и достоинством.
+      </p>
+      <div class="flex flex-wrap gap-4 mb-12">
+        <a href="#contacts" class="btn-gold px-8 py-4 rounded font-semibold shadow-lg hover:shadow-2xl transition">Вызвать ритуального агента</a>
+        <a href="#catalog" class="btn-outline px-8 py-4 rounded font-semibold transition">Смотреть каталог</a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-gray-800">
+        <div>
+          <div class="font-serif text-3xl font-bold gold-text">24/7</div>
+          <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Круглосуточно</div>
+        </div>
+        <div>
+          <div class="font-serif text-3xl font-bold gold-text">20+</div>
+          <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Лет опыта</div>
+        </div>
+        <div>
+          <div class="font-serif text-3xl font-bold gold-text">15k+</div>
+          <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Семей доверились</div>
+        </div>
+        <div>
+          <div class="font-serif text-3xl font-bold gold-text">100%</div>
+          <div class="text-xs text-gray-400 uppercase tracking-wider mt-1">Официально</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Emergency Banner -->
+<section class="bg-[#1a1a1a] border-y border-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-full bg-[#7c1d1d] flex items-center justify-center pulse-ring">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <div class="font-serif text-xl text-white">Нужна срочная помощь?</div>
+          <div class="text-sm text-gray-400">Ритуальный агент прибудет в течение 30 минут в любую точку Москвы</div>
+        </div>
+      </div>
+      <a href="tel:+74951234567" class="btn-gold px-6 py-3 rounded font-semibold flex items-center gap-2">
+        <span>+7 (495) 123-45-67</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="py-20 bg-[#0f0f0f]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+        <span class="text-[#c9a961] text-sm tracking-[0.3em] uppercase">Наши услуги</span>
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Полный цикл ритуальных услуг</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Берём на себя все организационные вопросы, чтобы вы могли проститься с близким человеком в спокойной обстановке</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="dark-card rounded-lg p-8 product-card">
+        <div class="w-14 h-14 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        </div>
+        <h3 class="font-serif text-2xl text-white mb-3">Организация похорон</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Полное сопровождение от момента обращения до проведения церемонии прощания. Оформление документов, транспортировка, организация траурного мероприятия.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">от 25 000 ₽</span>
+          <a href="#contacts" class="text-[#c9a961] text-sm hover:underline">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="dark-card rounded-lg p-8 product-card">
+        <div class="w-14 h-14 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.24 17 7.198c.757 1.572 1.753 2.635 2.5 3.582a8.001 8.001 0 01-1.843 7.877z"/></svg>
+        </div>
+        <h3 class="font-serif text-2xl text-white mb-3">Кремация</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Кремация в крематориях Москвы и области. Организация прощания, предоставление урн для праха, захоронение урны или развеивание праха.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">от 18 000 ₽</span>
+          <a href="#contacts" class="text-[#c9a961] text-sm hover:underline">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="dark-card rounded-lg p-8 product-card">
+        <div class="w-14 h-14 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        </div>
+        <h3 class="font-serif text-2xl text-white mb-3">Захоронение</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Подбор места на кладбище, копку могилы, установку временного и постоянного памятника. Организация поминального обеда.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">от 35 000 ₽</span>
+          <a href="#contacts" class="text-[#c9a961] text-sm hover:underline">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="dark-card rounded-lg p-8 product-card relative overflow-hidden">
+        <div class="absolute top-0 right-0 ribbon px-3 py-1 text-xs font-semibold tracking-wider">ПОПУЛЯРНО</div>
+        <div class="w-14 h-14 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+        </div>
+        <h3 class="font-serif text-2xl text-white mb-3">Груз 200</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Транспортировка усопших по России и странам СНГ. Цинковые гробы, оформление документов, сопровождение, авиа- и ж/д перевозки.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">от 45 000 ₽</span>
+          <a href="#contacts" class="text-[#c9a961] text-sm hover:underline">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="dark-card rounded-lg p-8 product-card">
+        <div class="w-14 h-14 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        </div>
+        <h3 class="font-serif text-2xl text-white mb-3">Оформление документов</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Получение гербового свидетельства, справок, оформление места на кладбище, получение пособия на погребение. Работаем с ЗАГС и МФЦ.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">от 5 000 ₽</span>
+          <a href="#contacts" class="text-[#c9a961] text-sm hover:underline">Заказать →</a>
+        </div>
+      </div>
+
+      <div class="dark-card rounded-lg p-8 product-card">
+        <div class="w-14 h-14 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center mb-6">
+          <svg class="w-7 h-7 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="font-serif text-2xl text-white mb-3">Траурная церемония</h3>
+        <p class="text-gray-400 text-sm leading-relaxed mb-4">Организация прощания в траурном зале, услуги ведущего, музыкальное сопровождение, религиозные обряды, поминальные обед на любое количество гостей.</p>
+        <div class="flex items-center justify-between pt-4 border-t border-gray-800">
+          <span class="text-xs text-gray-500 uppercase tracking-wider">от 15 000 ₽</span>
+          <a href="#contacts" class="text-[#c9a961] text-sm hover:underline">Заказать →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Funeral Types -->
+<section id="funeral" class="py-20 bg-[#141414] border-y border-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+        <span class="text-[#c9a961] text-sm tracking-[0.3em] uppercase">Варианты похорон</span>
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Выберите формат прощания</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Каждый вариант включает полный пакет необходимых услуг. Возможна индивидуальная компоновка.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="dark-card rounded-lg p-8 product-card">
+        <div class="text-xs text-gray-500 uppercase tracking-[0.3em] mb-3">Эконом</div>
+        <h3 class="font-serif text-3xl text-white mb-2">Стандартные похороны</h3>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="font-serif text-4xl font-bold gold-text">25 000</span>
+          <span class="text-gray-500">₽</span>
+        </div>
+        <div class="divider-gold mb-6"></div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Гроб обитый тканью</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Комплект ритуальной одежды</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Катафалк по Москве</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Копка могилы</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Крест деревянный с табличкой</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Венок траурный 2 шт.</li>
+        </ul>
+        <button onclick="orderPackage('Стандартные похороны', 25000)" class="w-full btn-outline py-3 rounded font-semibold transition">Заказать пакет</button>
+      </div>
+
+      <div class="dark-card rounded-lg p-8 product-card relative border-[#c9a961]">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 ribbon px-4 py-1 text-xs font-semibold tracking-wider rounded">РЕКОМЕНДУЕМ</div>
+        <div class="text-xs text-[#c9a961] uppercase tracking-[0.3em] mb-3">Премиум</div>
+        <h3 class="font-serif text-3xl text-white mb-2">Достойные похороны</h3>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="font-serif text-4xl font-bold gold-text">65 000</span>
+          <span class="text-gray-500">₽</span>
+        </div>
+        <div class="divider-gold mb-6"></div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Гроб лакированный с фурнитурой</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Премиум комплект одежды</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Катафалк Mercedes</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Траурный зал на 2 часа</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Памятник гранитный временный</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Венки и корзины 5 шт.</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Поминальный обед на 20 чел.</li>
+        </ul>
+        <button onclick="orderPackage('Достойные похороны', 65000)" class="w-full btn-gold py-3 rounded font-semibold transition">Заказать пакет</button>
+      </div>
+
+      <div class="dark-card rounded-lg p-8 product-card">
+        <div class="text-xs text-gray-500 uppercase tracking-[0.3em] mb-3">Элит</div>
+        <h3 class="font-serif text-3xl text-white mb-2">Элитные похороны</h3>
+        <div class="flex items-baseline gap-2 mb-6">
+          <span class="font-serif text-4xl font-bold gold-text">от 150 000</span>
+          <span class="text-gray-500">₽</span>
+        </div>
+        <div class="divider-gold mb-6"></div>
+        <ul class="space-y-3 mb-8">
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Элитный гроб из ценных пород</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Бронзовая/латунная фурнитура</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Кортеж из 3-5 автомобилей</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Элитный траурный зал</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Памятник мрамор/гранит</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Живые цветы, композиции</li>
+          <li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>Банкет в ресторане</li>
+        </ul>
+        <button onclick="orderPackage('Элитные похороны', 150000)" class="w-full btn-outline py-3 rounded font-semibold transition">Заказать пакет</button>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <p class="text-gray-500 text-sm">Возможна индивидуальная комплектация любого пакета. Рассрочка 0%. Социальные скидки.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Catalog -->
+<section id="catalog" class="py-20 bg-[#0f0f0f]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+        <span class="text-[#c9a961] text-sm tracking-[0.3em] uppercase">Каталог товаров</span>
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Ритуальные принадлежности</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Широкий выбор гробов, венков, крестов, урн и памятников от проверенных производителей</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2 mb-12 border-b border-gray-800 pb-0">
+      <button onclick="switchTab('all')" class="tab-btn tab-active px-6 py-3 text-sm tracking-wider uppercase transition">Все товары</button>
+      <button onclick="switchTab('coffins')" class="tab-btn px-6 py-3 text-sm tracking-wider uppercase text-gray-400 hover:text-[#c9a961] transition">Гробы</button>
+      <button onclick="switchTab('wreaths')" class="tab-btn px-6 py-3 text-sm tracking-wider uppercase text-gray-400 hover:text-[#c9a961] transition">Венки</button>
+      <button onclick="switchTab('crosses')" class="tab-btn px-6 py-3 text-sm tracking-wider uppercase text-gray-400 hover:text-[#c9a961] transition">Кресты</button>
+      <button onclick="switchTab('urns')" class="tab-btn px-6 py-3 text-sm tracking-wider uppercase text-gray-400 hover:text-[#c9a961] transition">Урны</button>
+      <button onclick="switchTab('monuments')" class="tab-btn px-6 py-3 text-sm tracking-wider uppercase text-gray-400 hover:text-[#c9a961] transition">Памятники</button>
+    </div>
+
+    <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-20 bg-[#141414] border-y border-gray-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="h-px w-12 bg-[#c9a961]"></div>
+          <span class="text-[#c9a961] text-sm tracking-[0.3em] uppercase">О компании</span>
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-6">Два десятилетия<br/>достойной службы</h2>
+        <p class="text-gray-400 mb-6 leading-relaxed">
+          «МосРитуалист» — одна из старейших ритуальных служб Москвы. С 2005 года мы помогаем семьям проводить близких в последний путь с уважением, достоинством и заботой.
+        </p>
+        <p class="text-gray-400 mb-8 leading-relaxed">
+          Наша команда — профессиональные ритуальные агенты, прошедшие специальную подготовку. Мы понимаем, как важно в трудную минуту иметь рядом надёжного помощника.
+        </p>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="border-l-2 border-[#c9a961] pl-4">
+            <div class="font-serif text-3xl font-bold gold-text">20+</div>
+            <div class="text-sm text-gray-500 mt-1">лет на рынке</div>
+          </div>
+          <div class="border-l-2 border-[#c9a961] pl-4">
+            <div class="font-serif text-3xl font-bold gold-text">15 000+</div>
+            <div class="text-sm text-gray-500 mt-1">семей доверились</div>
+          </div>
+          <div class="border-l-2 border-[#c9a961] pl-4">
+            <div class="font-serif text-3xl font-bold gold-text">50+</div>
+            <div class="text-sm text-gray-500 mt-1">сотрудников</div>
+          </div>
+          <div class="border-l-2 border-[#c9a961] pl-4">
+            <div class="font-serif text-3xl font-bold gold-text">24/7</div>
+            <div class="text-sm text-gray-500 mt-1">без выходных</div>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="dark-card rounded-lg p-6">
+          <div class="text-3xl mb-3">🕊️</div>
+          <h4 class="font-serif text-lg text-white mb-2">Деликатность</h4>
+          <p class="text-sm text-gray-400">Понимаем ваше горе и действуем максимально тактично</p>
+        </div>
+        <div class="dark-card rounded-lg p-6 mt-8">
+          <div class="text-3xl mb-3">📜</div>
+          <h4 class="font-serif text-lg text-white mb-2">Официально</h4>
+          <p class="text-sm text-gray-400">Все лицензии и разрешения. Работаем по договору</p>
+        </div>
+        <div class="dark-card rounded-lg p-6">
+          <div class="text-3xl mb-3">💎</div>
+          <h4 class="font-serif text-lg text-white mb-2">Прозрачность</h4>
+          <p class="text-sm text-gray-400">Фиксированные цены без скрытых доплат и навязывания</p>
+        </div>
+        <div class="dark-card rounded-lg p-6 mt-8">
+          <div class="text-3xl mb-3">🤝</div>
+          <h4 class="font-serif text-lg text-white mb-2">Поддержка</h4>
+          <p class="text-sm text-gray-400">Сопровождаем на всех этапах, в том числе после похорон</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contacts -->
+<section id="contacts" class="py-20 bg-[#0f0f0f]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <div class="flex items-center justify-center gap-3 mb-4">
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+        <span class="text-[#c9a961] text-sm tracking-[0.3em] uppercase">Связаться с нами</span>
+        <div class="h-px w-12 bg-[#c9a961]"></div>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Мы рядом в трудную минуту</h2>
+      <p class="text-gray-400 max-w-2xl mx-auto">Оставьте заявку — ритуальный агент свяжется с вами в течение 5 минут</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="dark-card rounded-lg p-8">
+        <h3 class="font-serif text-2xl text-white mb-6">Заявка на вызов агента</h3>
+        <form id="agentForm" onsubmit="submitRequest(event)" class="space-y-4">
+          <div>
+            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2">Ваше имя</label>
+            <input id="reqName" type="text" required class="w-full bg-[#0f0f0f] border border-gray-800 rounded px-4 py-3 text-white focus:border-[#c9a961] outline-none transition"/>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2">Телефон</label>
+            <input id="reqPhone" type="tel" required placeholder="+7 (___) ___-__-__" class="w-full bg-[#0f0f0f] border border-gray-800 rounded px-4 py-3 text-white focus:border-[#c9a961] outline-none transition"/>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2">Тип услуги</label>
+            <select id="reqService" class="w-full bg-[#0f0f0f] border border-gray-800 rounded px-4 py-3 text-white focus:border-[#c9a961] outline-none transition">
+              <option>Организация похорон</option>
+              <option>Кремация</option>
+              <option>Захоронение</option>
+              <option>Груз 200</option>
+              <option>Оформление документов</option>
+              <option>Траурная церемония</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500 uppercase tracking-wider mb-2">Комментарий</label>
+            <textarea id="reqComment" rows="3" class="w-full bg-[#0f0f0f] border border-gray-800 rounded px-4 py-3 text-white focus:border-[#c9a961] outline-none transition"></textarea>
+          </div>
+          <button id="reqSubmitBtn" type="submit" class="w-full btn-gold py-3 rounded font-semibold transition flex items-center justify-center gap-2">
+            <span>Отправить заявку</span>
+          </button>
+          <p id="reqStatus" class="text-xs text-center hidden"></p>
+          <p class="text-xs text-gray-500 text-center">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</p>
+        </form>
+      </div>
+
+      <div class="space-y-6">
+        <div class="dark-card rounded-lg p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Круглосуточная линия</div>
+            <a href="tel:+74951234567" class="font-serif text-2xl text-white hover:text-[#c9a961] transition">+7 (495) 123-45-67</a>
+            <div class="text-sm text-gray-400 mt-1">Звонки бесплатные по всей России</div>
+          </div>
+        </div>
+
+        <div class="dark-card rounded-lg p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Главный офис</div>
+            <div class="font-serif text-lg text-white">г. Москва, ул. Большая Ордынка, 21</div>
+            <div class="text-sm text-gray-400 mt-1">Ежедневно, круглосуточно</div>
+          </div>
+        </div>
+
+        <div class="dark-card rounded-lg p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Электронная почта</div>
+            <a href="mailto:info@mosritualist.ru" class="font-serif text-lg text-white hover:text-[#c9a961] transition">info@mosritualist.ru</a>
+            <div class="text-sm text-gray-400 mt-1">Ответим в течение часа</div>
+          </div>
+        </div>
+
+        <div class="dark-card rounded-lg p-6 flex items-start gap-4">
+          <div class="w-12 h-12 rounded-full bg-[#c9a961]/10 border border-[#c9a961]/30 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Документы</div>
+            <div class="font-serif text-lg text-white">Лицензия №77-Р/2019</div>
+            <div class="text-sm text-gray-400 mt-1">Реестр ритуальных служб г. Москвы</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black border-t border-gray-900 py-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8 mb-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-full border border-[#c9a961] flex items-center justify-center">
+            <svg class="w-5 h-5 text-[#c9a961]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L13.5 8.5H20L14.75 12.5L16.5 19L12 15L7.5 19L9.25 12.5L4 8.5H10.5L12 2Z"/></svg>
+          </div>
+          <div class="font-serif text-xl text-white">МосРитуалист</div>
+        </div>
+        <p class="text-sm text-gray-500 leading-relaxed">Ритуальные услуги в Москве и области. Работаем круглосуточно, без выходных и праздников.</p>
+      </div>
+      <div>
+        <h4 class="font-serif text-white mb-4">Услуги</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="#services" class="hover:text-[#c9a961] transition">Организация похорон</a></li>
+          <li><a href="#services" class="hover:text-[#c9a961] transition">Кремация</a></li>
+          <li><a href="#services" class="hover:text-[#c9a961] transition">Захоронение</a></li>
+          <li><a href="#services" class="hover:text-[#c9a961] transition">Груз 200</a></li>
+          <li><a href="#services" class="hover:text-[#c9a961] transition">Оформление документов</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-serif text-white mb-4">Каталог</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="#catalog" class="hover:text-[#c9a961] transition">Гробы</a></li>
+          <li><a href="#catalog" class="hover:text-[#c9a961] transition">Венки и корзины</a></li>
+          <li><a href="#catalog" class="hover:text-[#c9a961] transition">Кресты и таблички</a></li>
+          <li><a href="#catalog" class="hover:text-[#c9a961] transition">Урны для праха</a></li>
+          <li><a href="#catalog" class="hover:text-[#c9a961] transition">Памятники</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-serif text-white mb-4">Контакты</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a href="tel:+74951234567" class="hover:text-[#c9a961] transition">+7 (495) 123-45-67</a></li>
+          <li><a href="mailto:info@mosritualist.ru" class="hover:text-[#c9a961] transition">info@mosritualist.ru</a></li>
+          <li>ул. Большая Ордынка, 21</li>
+          <li>Круглосуточно</li>
+        </ul>
+      </div>
+    </div>
+    <div class="divider-gold mb-6"></div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+      <p>© 2005–2026 МосРитуалист. Все права защищены.</p>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-[#c9a961] transition">Политика конфиденциальности</a>
+        <a href="#" class="hover:text-[#c9a961] transition">Пользовательское соглашение</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Order Modal -->
+<div id="orderModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4">
+  <div class="dark-card rounded-lg max-w-lg w-full p-8 fade-in">
+    <div class="flex items-center justify-between mb-6">
+      <h3 class="font-serif text-2xl text-white">Оформление заказа</h3>
+      <button onclick="closeOrderModal()" class="text-gray-500 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="orderInfo" class="mb-6 p-4 bg-[#0f0f0f] rounded border border-gray-800">
+      <div class="text-xs text-gray-500 uppercase tracking-wider mb-1">Выбранный товар</div>
+      <div id="orderItemName" class="font-serif text-lg text-white"></div>
+      <div id="orderItemPrice" class="gold-text font-semibold mt-1"></div>
+    </div>
+    <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-4">
+      <input id="ordName" type="text" required placeholder="Ваше имя" class="w-full bg-[#0f0f0f] border border-gray-800 rounded px-4 py-3 text-white focus:border-[#c9a961] outline-none"/>
+      <input id="ordPhone" type="tel" required placeholder="Телефон" class="w-full bg-[#0f0f0f] border border-gray-800 rounded px-4 py-3 text-white focus:border-[#c9a961] outline-none"/>
+      <textarea id="ordComment" placeholder="Комментарий к заказу" rows="3" class="w-full bg-[#0f0f0f] border border-gray-800 rounded px-4 py-3 text-white focus:border-[#c9a961] outline-none"></textarea>
+      <button id="ordSubmitBtn" type="submit" class="w-full btn-gold py-3 rounded font-semibold transition flex items-center justify-center gap-2">
+        <span>Отправить заявку</span>
+      </button>
+      <p id="ordStatus" class="text-xs text-center hidden"></p>
+    </form>
+  </div>
+</div>
+
+<!-- Product Modal -->
+<div id="productModal" class="fixed inset-0 bg-black/80 z-50 hidden items-center justify-center p-4">
+  <div class="dark-card rounded-lg max-w-4xl w-full max-h-[90vh] overflow-y-auto fade-in">
+    <div id="productModalContent"></div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toastContainer" class="fixed bottom-6 right-6 z-50 space-y-2"></div>
+
+<script>
+// ===== TELEGRAM НАСТРОЙКИ =====
+const TELEGRAM_BOT_TOKEN = '8649689335:AAFSV2T1nOlwmBt-ganyqJKBOBAe80RmQZ8';
+const TELEGRAM_CHAT_ID   = '987264238';
+// ================================
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+async function sendToTelegram(message) {
+  const res = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      chat_id: TELEGRAM_CHAT_ID,
+      text: message,
+      parse_mode: 'HTML'
+    })
+  });
+  const data = await res.json();
+  if (!data.ok) throw new Error(data.description || 'Ошибка Telegram');
+  return data;
+}
+
+const products = [
+  { id: 1, name: 'Гроб обитый "Стандарт"', category: 'coffins', price: 8500, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1f4f7c7a1-8a5b-4d3e-9f2a-1b2c3d4e5f6a.png', desc: 'Гроб из сосны, обитый тканью серого или бордового цвета. Шестигранный. Размеры: 190×60×55 см.', features: ['Материал: сосна', 'Обивка: атлас/бархат', 'Фурнитура пластиковая', 'Размеры на выбор'] },
+  { id: 2, name: 'Гроб лакированный "Достойный"', category: 'coffins', price: 22000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1a1b2c3d4-e5f6-7a8b-9c0d-1e2f3a4b5c6d.png', desc: 'Лакированный гроб из массива дерева с бронзовой фурнитурой. Отделка внутренней части — бархат премиум-класса.', features: ['Материал: дуб/ясень', 'Лакированное покрытие', 'Бронзовая фурнитура', 'Бархатная отделка'] },
+  { id: 3, name: 'Гроб элитный "Премиум"', category: 'coffins', price: 65000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1b2c3d4e5-f6a7-8b9c-0d1e-2f3a4b5c6d7e.png', desc: 'Элитный гроб из ценных пород дерева с ручной резьбой. Латунная фурнитура, откидная крышка.', features: ['Ценные породы дерева', 'Ручная резьба', 'Латунная фурнитура', 'Индивидуальная комплектация'] },
+  { id: 4, name: 'Гроб "Цинковый" (Груз 200)', category: 'coffins', price: 35000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1c3d4e5f6-a7b8-9c0d-1e2f-3a4b5c6d7e8f.png', desc: 'Цинковый гроб для транспортировки усопших на дальние расстояния. Герметично запаян, соответствует всем санитарным нормам.', features: ['Цинковый сплав', 'Герметичная пайка', 'Для авиа и ж/д перевозок', 'Все документы в комплекте'] },
+  { id: 5, name: 'Венок траурный "Память"', category: 'wreaths', price: 2500, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9a.png', desc: 'Траурный венок из искусственных цветов. Ленты с надписью. Высота 120 см.', features: ['Искусственные цветы', 'Атласные ленты', 'Высота 120 см', 'Надпись бесплатно'] },
+  { id: 6, name: 'Венок "Скорбь"', category: 'wreaths', price: 4800, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1e5f6a7b8-c9d0-1e2f-3a4b-5c6d7e8f9a0b.png', desc: 'Пышный траурный венок с розами и лилиями. Двусторонний. Ленты в комплекте.', features: ['Премиум искусственные цветы', 'Розы и лилии', 'Двусторонний', 'Высота 140 см'] },
+  { id: 7, name: 'Корзина живых цветов', category: 'wreaths', price: 7500, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1f6a7b8c9-d0e1-2f3a-4b5c-6d7e8f9a0b1c.png', desc: 'Траурная корзина из живых цветов: розы, хризантемы, гвоздики. Оформление лентой.', features: ['Только свежие цветы', 'Розы, хризантемы', 'Плетёная корзина', 'Ленты с надписью'] },
+  { id: 8, name: 'Венок из натуральных еловых ветвей', category: 'wreaths', price: 3200, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1a7b8c9d0-e1f2-3a4b-5c6d-7e8f9a0b1c2d.png', desc: 'Классический венок из свежих еловых ветвей с траурными лентами. Традиционное оформление.', features: ['Свежая хвоя', 'Красные ленты', 'Диаметр 80 см', 'Классический стиль'] },
+  { id: 9, name: 'Крест деревянный с табличкой', category: 'crosses', price: 3500, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1b8c9d0e1-f2a3-4b5c-6d7e-8f9a0b1c2d3e.png', desc: 'Православный крест из сосны с табличкой для гравировки. Лакированный. Высота 180 см.', features: ['Массив сосны', 'Лакированное покрытие', 'Табличка в комплекте', 'Гравировка бесплатно'] },
+  { id: 10, name: 'Крест дубовый резной', category: 'crosses', price: 12000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1c9d0e1f2-a3b4-5c6d-7e8f-9a0b1c2d3e4f.png', desc: 'Резной крест из дуба с традиционными православными орнаментами. Бронзовая икона.', features: ['Массив дуба', 'Ручная резьба', 'Бронзовая икона', 'Высота 200 см'] },
+  { id: 11, name: 'Крест металлический кованый', category: 'crosses', price: 18500, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1d0e1f2a3-b4c5-6d7e-8f9a-0b1c2d3e4f5a.png', desc: 'Кованый металлический крест с элементами литья. Покрытие — порошковая краска. Долговечный.', features: ['Кованая сталь', 'Порошковая покраска', 'Элементы литья', 'Срок службы 50+ лет'] },
+  { id: 12, name: 'Урна для праха "Классика"', category: 'urns', price: 4500, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1e1f2a3b4-c5d6-7e8f-9a0b-1c2d3e4f5a6b.png', desc: 'Классическая урна из МДФ с бархатной отделкой. Герметично закрывается. С табличкой.', features: ['МДФ с отделкой', 'Бархат внутри', 'Герметичная крышка', 'Табличка в комплекте'] },
+  { id: 13, name: 'Урна керамическая "Вечность"', category: 'urns', price: 12000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1f2a3b4c5-d6e7-8f9a-0b1c-2d3e4f5a6b7c.png', desc: 'Керамическая урна ручной работы с художественной росписью. Эксклюзивный дизайн.', features: ['Натуральная керамика', 'Ручная роспись', 'Эксклюзивный дизайн', 'Объём 3 литра'] },
+  { id: 14, name: 'Урна гранитная "Память"', category: 'urns', price: 22000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1a3b4c5d6-e7f8-9a0b-1c2d-3e4f5a6b7c8d.png', desc: 'Урна из натурального гранита с гравировкой. Долговечная, подходит для захоронения в землю.', features: ['Натуральный гранит', 'Гравировка портрета', 'Для захоронения в землю', 'Вес 15 кг'] },
+  { id: 15, name: 'Памятник вертикальный гранитный', category: 'monuments', price: 35000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1b4c5d6e7-f8a9-0b1c-2d3e-4f5a6b7c8d9e.png', desc: 'Вертикальный памятник из чёрного гранита. Полировка, гравировка портрета и эпитафии.', features: ['Чёрный гранит', 'Полировка 100%', 'Гравировка портрета', 'Установка включена'] },
+  { id: 16, name: 'Памятник семейный (двойной)', category: 'monuments', price: 75000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1c5d6e7f8-a9b0-1c2d-3e4f-5a6b7c8d9e0f.png', desc: 'Семейный двойной памятник из гранита с гравировкой двух портретов. Цветник в комплекте.', features: ['Двойной памятник', '2 портрета', 'Цветник в комплекте', 'Гарантия 25 лет'] },
+  { id: 17, name: 'Памятник мраморный белый', category: 'monuments', price: 48000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1d6e7f8a9-b0c1-2d3e-4f5a-6b7c8d9e0f1a.png', desc: 'Памятник из белого мрамора с классической формой. Резные элементы, бронзовый крест.', features: ['Белый мрамор', 'Резные элементы', 'Бронзовый крест', 'Премиум исполнение'] },
+  { id: 18, name: 'Памятник эксклюзивный с ангелом', category: 'monuments', price: 120000, image: 'https://image.qwenlm.ai/public_source/fd6eb566-51f1-43ea-b4a6-afe8383a8093/1e7f8a9b0-c1d2-3e4f-5a6b-7c8d9e0f1a2b.png', desc: 'Эксклюзивный памятник с скульптурой ангела. Ручная работа мастера. Итальянский мрамор.', features: ['Итальянский мрамор', 'Скульптура ангела', 'Ручная работа', 'Индивидуальный проект'] }
+];
+
+let currentTab = 'all';
+
+function renderCatalog() {
+  const grid = document.getElementById('catalogGrid');
+  const filtered = currentTab === 'all' ? products : products.filter(p => p.category === currentTab);
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card dark-card rounded-lg overflow-hidden cursor-pointer" onclick="openProduct(${p.id})">
+      <div class="relative overflow-hidden bg-[#1a1a1a] aspect-square flex items-center justify-center">
+        <img src="${p.image}" alt="${p.name}" class="product-img w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'flex flex-col items-center justify-center h-full text-gray-600\\'><svg class=\\'w-16 h-16 mb-2\\' fill=\\'currentColor\\' viewBox=\\'0 0 24 24\\'><path d=\\'M12 2L13.5 8.5H20L14.75 12.5L16.5 19L12 15L7.5 19L9.25 12.5L4 8.5H10.5L12 2Z\\'/></svg><span class=\\'text-xs uppercase tracking-wider\\'>${getCategoryLabel(p.category)}</span></div>'"/>
+        <div class="absolute top-3 left-3 ribbon px-2 py-1 text-xs tracking-wider">${getCategoryLabel(p.category)}</div>
+      </div>
+      <div class="p-5">
+        <h3 class="font-serif text-lg text-white mb-2 line-clamp-2">${p.name}</h3>
+        <p class="text-xs text-gray-500 mb-4 line-clamp-2">${p.desc}</p>
+        <div class="flex items-center justify-between pt-3 border-t border-gray-800">
+          <div>
+            <div class="text-xs text-gray-500 uppercase tracking-wider">Цена</div>
+            <div class="font-serif text-xl font-bold gold-text">${p.price.toLocaleString('ru-RU')} ₽</div>
+          </div>
+          <button onclick="event.stopPropagation(); openOrderModal(${p.id})" class="btn-outline px-4 py-2 rounded text-sm font-semibold transition">Заказать</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function getCategoryLabel(cat) {
+  const labels = { coffins: 'Гробы', wreaths: 'Венки', crosses: 'Кресты', urns: 'Урны', monuments: 'Памятники' };
+  return labels[cat] || cat;
+}
+
+function switchTab(tab) {
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('tab-active');
+    btn.classList.add('text-gray-400');
+  });
+  event.currentTarget.classList.add('tab-active');
+  event.currentTarget.classList.remove('text-gray-400');
+  renderCatalog();
+}
+
+function openProduct(id) {
+  const p = products.find(pr => pr.id === id);
+  document.getElementById('productModalContent').innerHTML = `
+    <div class="grid md:grid-cols-2">
+      <div class="bg-[#1a1a1a] aspect-square flex items-center justify-center relative">
+        <img src="${p.image}" alt="${p.name}" class="w-full h-full object-cover" onerror="this.style.display='none'"/>
+        <div class="absolute top-4 left-4 ribbon px-3 py-1 text-xs tracking-wider">${getCategoryLabel(p.category)}</div>
+      </div>
+      <div class="p-8">
+        <div class="text-xs text-[#c9a961] uppercase tracking-[0.3em] mb-2">${getCategoryLabel(p.category)}</div>
+        <h2 class="font-serif text-3xl text-white mb-4">${p.name}</h2>
+        <div class="font-serif text-3xl font-bold gold-text mb-6">${p.price.toLocaleString('ru-RU')} ₽</div>
+        <p class="text-gray-400 mb-6 leading-relaxed">${p.desc}</p>
+        <div class="mb-6">
+          <div class="text-xs text-gray-500 uppercase tracking-wider mb-3">Характеристики</div>
+          <ul class="space-y-2">
+            ${p.features.map(f => `<li class="flex items-start gap-2 text-sm text-gray-300"><svg class="w-4 h-4 text-[#c9a961] mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>${f}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="flex gap-3">
+          <button onclick="closeProductModal(); openOrderModal(${p.id})" class="flex-1 btn-gold py-3 rounded font-semibold transition">Заказать</button>
+          <button onclick="closeProductModal()" class="px-6 py-3 rounded border border-gray-700 text-gray-300 hover:border-[#c9a961] hover:text-[#c9a961] transition">Закрыть</button>
+        </div>
+        <div class="mt-6 pt-6 border-t border-gray-800 text-xs text-gray-500">
+          <div class="flex items-center gap-2 mb-2"><svg class="w-4 h-4 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>Гарантия качества и официальное оформление</div>
+          <div class="flex items-center gap-2 mb-2"><svg class="w-4 h-4 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>Доставка в день заказа</div>
+          <div class="flex items-center gap-2"><svg class="w-4 h-4 text-[#c9a961]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/></svg>Возможна рассрочка 0%</div>
+        </div>
+      </div>
+    </div>
+  `;
+  document.getElementById('productModal').classList.remove('hidden');
+  document.getElementById('productModal').classList.add('flex');
+}
+
+function closeProductModal() {
+  document.getElementById('productModal').classList.add('hidden');
+  document.getElementById('productModal').classList.remove('flex');
+}
+
+// ====== ТЕКУЩИЙ ЗАКАЗ (для модалки товара/пакета) ======
+let currentOrderItem = { name: '', price: 0 };
+
+function openOrderModal(id) {
+  const p = products.find(pr => pr.id === id);
+  currentOrderItem = { name: p.name, price: p.price };
+  document.getElementById('orderItemName').textContent = p.name;
+  document.getElementById('orderItemPrice').textContent = p.price.toLocaleString('ru-RU') + ' ₽';
+  document.getElementById('orderModal').classList.remove('hidden');
+  document.getElementById('orderModal').classList.add('flex');
+}
+
+function closeOrderModal() {
+  document.getElementById('orderModal').classList.add('hidden');
+  document.getElementById('orderModal').classList.remove('flex');
+}
+
+function orderPackage(name, price) {
+  currentOrderItem = { name: 'Пакет: ' + name, price: price };
+  document.getElementById('orderItemName').textContent = 'Пакет: ' + name;
+  document.getElementById('orderItemPrice').textContent = price.toLocaleString('ru-RU') + ' ₽';
+  document.getElementById('orderModal').classList.remove('hidden');
+  document.getElementById('orderModal').classList.add('flex');
+}
+
+// ====== ОТПРАВКА ЗАЯВКИ НА ВЫЗОВ АГЕНТА ======
+async function submitRequest(e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('reqName').value.trim();
+  const phone   = document.getElementById('reqPhone').value.trim();
+  const service = document.getElementById('reqService').value;
+  const comment = document.getElementById('reqComment').value.trim();
+  const btn     = document.getElementById('reqSubmitBtn');
+  const status  = document.getElementById('reqStatus');
+
+  const now = new Date().toLocaleString('ru-RU', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit'
+  });
+
+  const message =
+`🕊️ <b>НОВАЯ ЗАЯВКА — Вызов агента</b>
+━━━━━━━━━━━━━━━━━━
+
+👤 <b>Имя:</b> ${escapeHtml(name)}
+📞 <b>Телефон:</b> ${escapeHtml(phone)}
+⚱️ <b>Услуга:</b> ${escapeHtml(service)}
+💬 <b>Комментарий:</b> ${comment ? escapeHtml(comment) : '—'}
+
+🕐 <i>Время: ${now}</i>
+🌐 <i>Источник: сайт МосРитуалист</i>`;
+
+  btn.disabled = true;
+  btn.innerHTML = '<svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg><span>Отправка...</span>';
+  status.classList.add('hidden');
+
+  try {
+    await sendToTelegram(message);
+    status.textContent = '✓ Заявка отправлена. Мы перезвоним в течение 5 минут.';
+    status.className = 'text-xs text-green-400 text-center';
+    status.classList.remove('hidden');
+    showToast('Заявка отправлена. Мы перезвоним вам в ближайшее время.');
+    e.target.reset();
+  } catch (err) {
+    console.error('Telegram error:', err);
+    status.textContent = '✗ Не удалось отправить. Позвоните: +7 (495) 123-45-67';
+    status.className = 'text-xs text-red-400 text-center';
+    status.classList.remove('hidden');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<span>Отправить заявку</span>';
+  }
+}
+
+// ====== ОТПРАВКА ЗАКАЗА ТОВАРА / ПАКЕТА ======
+async function submitOrder(e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('ordName').value.trim();
+  const phone   = document.getElementById('ordPhone').value.trim();
+  const comment = document.getElementById('ordComment').value.trim();
+  const btn     = document.getElementById('ordSubmitBtn');
+  const status  = document.getElementById('ordStatus');
+
+  const now = new Date().toLocaleString('ru-RU', {
+    day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit'
+  });
+
+  const message =
+`🛒 <b>НОВЫЙ ЗАКАЗ — Каталог</b>
+━━━━━━━━━━━━━━━━━━
+
+📦 <b>Товар:</b> ${escapeHtml(currentOrderItem.name)}
+💰 <b>Стоимость:</b> ${currentOrderItem.price.toLocaleString('ru-RU')} ₽
+
+👤 <b>Имя:</b> ${escapeHtml(name)}
+📞 <b>Телефон:</b> ${escapeHtml(phone)}
+💬 <b>Комментарий:</b> ${comment ? escapeHtml(comment) : '—'}
+
+🕐 <i>Время: ${now}</i>
+🌐 <i>Источник: сайт МосРитуалист</i>`;
+
+  btn.disabled = true;
+  btn.innerHTML = '<svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path></svg><span>Отправка...</span>';
+  status.classList.add('hidden');
+
+  try {
+    await sendToTelegram(message);
+    status.textContent = '✓ Заказ принят. Агент свяжется с вами в течение 5 минут.';
+    status.className = 'text-xs text-green-400 text-center';
+    status.classList.remove('hidden');
+    showToast('Заказ отправлен. Мы свяжемся с вами в ближайшее время.');
+    setTimeout(() => {
+      closeOrderModal();
+      e.target.reset();
+    }, 1500);
+  } catch (err) {
+    console.error('Telegram error:', err);
+    status.textContent = '✗ Не удалось отправить. Позвоните: +7 (495) 123-45-67';
+    status.className = 'text-xs text-red-400 text-center';
+    status.classList.remove('hidden');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '<span>Отправить заявку</span>';
+  }
+}
+
+function showToast(message) {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = 'toast bg-[#1a1a1a] border border-[#c9a961]/30 rounded px-5 py-4 shadow-2xl flex items-center gap-3 min-w-[300px]';
+  toast.innerHTML = `<svg class="w-5 h-5 text-[#c9a961] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg><span class="text-sm text-gray-200">${message}</span>`;
+  container.appendChild(toast);
+  setTimeout(() => toast.remove(), 3000);
+}
+
+document.getElementById('orderModal').addEventListener('click', (e) => {
+  if (e.target.id === 'orderModal') closeOrderModal();
+});
+document.getElementById('productModal').addEventListener('click', (e) => {
+  if (e.target.id === 'productModal') closeProductModal();
+});
+
+renderCatalog();
+</script>
+</body>
+</html>
+
