@@ -1,0 +1,4 @@
+preview/
+__pycache__/
+lead-config.php
+.env

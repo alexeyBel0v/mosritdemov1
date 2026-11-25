@@ -1,0 +1,69 @@
+<!-- КОМПЛЕКСЫ -->
+  <section class="packs" id="packs">
+    <div class="wrap">
+      <div class="packs-head">
+        <div>
+          <h2>Цены на похороны в Москве</h2>
+          <p>Часть расходов покрывает государственное пособие на погребение. Точную смету агент составит бесплатно.</p>
+        </div>
+        <div class="seg" id="seg" role="group" aria-label="Вид прощания">
+          <span class="ind" id="segInd"></span>
+          <button aria-pressed="true" data-k="crem">Кремация</button>
+          <button aria-pressed="false" data-k="bur">Захоронение</button>
+        </div>
+      </div>
+      <div class="plist" id="plist"></div>
+      <details class="extra">
+        <summary>Что может оплачиваться отдельно</summary>
+        <ul>
+          <li>Место на кладбище, если выбрано платное или семейное захоронение</li>
+          <li>Ниша в колумбарии</li>
+          <li>Отпевание в храме, по ценам храма</li>
+          <li>Памятник и благоустройство, их обычно делают позже</li>
+        </ul>
+        <p>Всё это агент называет до подписания договора. Новых строк в смете после подписания не появляется.</p>
+      </details>
+      <p class="packs-note">Цены указаны для примера и будут заменены на актуальные.</p>
+    </div>
+  </section>
+
+  <!-- КАЛЬКУЛЯТОР -->
+  <section class="calc" id="calc">
+    <div class="wrap">
+      <div class="calc-head">
+        <h2>Калькулятор стоимости похорон</h2>
+        <p>Выберите только нужное и сразу увидите, сколько вернёт пособие. Это ориентир, точная смета фиксируется в договоре.</p>
+      </div>
+      <div class="calc-grid">
+        <div class="calc-form">
+          <fieldset class="opt"><legend>Вид прощания</legend>
+            <div class="chips" data-name="kind"><button type="button" aria-pressed="true" data-v="crem">Кремация</button><button type="button" aria-pressed="false" data-v="bur">Захоронение</button></div>
+          </fieldset>
+          <fieldset class="opt"><legend>Зал прощания</legend>
+            <div class="chips" data-name="hall"><button type="button" aria-pressed="true" data-v="0">Без зала</button><button type="button" aria-pressed="false" data-v="30">30 минут</button><button type="button" aria-pressed="false" data-v="60">60 минут</button></div>
+          </fieldset>
+          <fieldset class="opt"><legend>Дополнительно</legend>
+            <label class="tog"><input type="checkbox" id="cBody" checked><span>Подготовка тела и одежда</span><b class="num">7 000 ₽</b></label>
+            <label class="tog"><input type="checkbox" id="cBus"><span>Автобус для родных</span><b class="num">8 000 ₽</b></label>
+          </fieldset>
+          <fieldset class="opt"><legend>Поминальный обед <output id="gOut" for="cGuests">не нужен</output></legend>
+            <input type="range" id="cGuests" min="0" max="60" step="5" value="0" aria-label="Сколько человек на поминальном обеде">
+          </fieldset>
+          <fieldset class="opt"><legend>Кем был человек на день смерти</legend>
+            <div class="chips" data-name="who"><button type="button" aria-pressed="true" data-v="msk">Не работал или пенсионер, жил в Москве</button><button type="button" aria-pressed="false" data-v="work">Работал</button><button type="button" aria-pressed="false" data-v="reg">Жил в другом регионе</button></div>
+          </fieldset>
+        </div>
+        <aside class="calc-sum" aria-live="polite">
+          <span class="cs-l">Ориентир по смете</span>
+          <div class="cs-total num" id="cTotal">41 900 ₽</div>
+          <ul id="cLines"></ul>
+          <div class="cs-row"><span>Пособие на погребение</span><b class="num" id="cBenefit">−25 988,63 ₽</b></div>
+          <div class="cs-row big"><span>Ваши расходы после выплаты</span><b class="num" id="cNet">15 911,37 ₽</b></div>
+          <a href="#contact" class="pill" id="cCta" data-goal="calc_lead">Зафиксировать смету с агентом</a>
+          <p class="cs-note">Цены в калькуляторе указаны для примера и будут заменены на актуальные.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  

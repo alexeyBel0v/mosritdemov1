@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /api/
+Clean-param: ysclid&utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid
+
+Sitemap: https://mosritualist.ru/sitemap.xml
