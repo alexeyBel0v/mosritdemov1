@@ -468,8 +468,6 @@ def build(mode):
         f.parent.mkdir(parents=True, exist_ok=True)
         f.write_text(txt)
     if mode == "prod":
-        (out / "api").mkdir(exist_ok=True)
-        shutil.copy(ROOT / "api/lead.php", out / "api/lead.php")
         urls = [""] + [s for s, p in PAGES.items() if not p.get("noindex") and not p.get("legal")]
         sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
             f"  <url><loc>{SITE['domain']}{'/' if not s else f'/{s}/'}</loc><lastmod>{TODAY}</lastmod><priority>{'1.0' if not s else ('0.8' if s.count('/') == 0 else '0.6')}</priority></url>\n" for s in urls) + "</urlset>\n"

@@ -16,7 +16,8 @@
 После правок: python3 build.py prod
 
 Заявки в Telegram
-- Хостинг с PHP (Beget, Timeweb и т.п.). Файл dist/api/lead.php.
+- Vercel: функция api/lead.js, токен и chat_id — в Settings → Environment Variables (TG_BOT_TOKEN, TG_CHAT_ID).
+- Хостинг с PHP (Beget, Timeweb и т.п.): скопировать php/lead.php в dist/api/lead.php и поставить в SITE lead = "/api/lead.php".
 - Рядом с папкой сайта (на уровень выше public_html) положить lead-config.php
   по образцу lead-config.example.php: токен бота и chat_id.
 - Токен НЕ хранить в файлах внутри сайта.
